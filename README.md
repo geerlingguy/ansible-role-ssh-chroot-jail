@@ -2,15 +2,11 @@
 
 [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-security.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-ssh-chroot-jail)
 
-**First, a major, MAJOR caveat**: the security of your servers is YOUR responsibility.
-
-TODO.
-
-Again: Your servers' security is *your* responsibility.
+Configures a chroot jail specifically for the purpose of limiting a set of SSH users to the jail. Useful if you have a server where you need to allow very limited access to a very limited amount of functionality.
 
 ## Requirements
 
-Requires OpenSSH server.
+Requires OpenSSH server. Doesn't require `geerlingguy.security`, but that role (or one like it) is highly recommended to help lock down your server as much as possible.
 
 ## Role Variables
 
