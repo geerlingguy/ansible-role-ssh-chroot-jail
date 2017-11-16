@@ -1,0 +1,20 @@
+---
+- name: Ensure jailed user exists.
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups | default(omit) }}"
+    append: yes
+    shell: "{{ item.shell | default(omit) }}"
+    home: "{{ item.home | default(omit) }}"
+    createhome: "{{ item.createhome | default(omit) }}"
+  register: user_task
+
+- name: Ensure account skeleton files are copied into jailed user's home.
+  command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
+  become: yes
+  become_user: "{{ item }}"
+  failed_when: False
+  warn: no
+  when:
+    - item.home is defined
+    - user_task.changed

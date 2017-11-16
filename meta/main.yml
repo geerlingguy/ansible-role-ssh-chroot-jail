@@ -1,0 +1,27 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: geerlingguy
+  description: Simple SSH chroot jail management.
+  company: "Midwestern Mac, LLC"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2
+  platforms:
+    # - name: EL
+    #   versions:
+    #   - all
+    - name: Debian
+      versions:
+      - all
+    - name: Ubuntu
+      versions:
+      - all
+  galaxy_tags:
+    - system
+    - security
+    - chroot
+    - ssh
+    - jail
+    - lockdown
+    - access
