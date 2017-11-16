@@ -21,5 +21,6 @@
 # Add libs required by ssh_chroot_bins using l2chroot.
 - name: Add binary libs using l2chroot.
   command: "l2chroot {{ item.bin | default(item) }}"
+  changed_when: False
   when: item.l2chroot is not defined or item.l2chroot
   with_items: "{{ ssh_chroot_bins }}"
