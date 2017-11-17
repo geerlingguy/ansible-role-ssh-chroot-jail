@@ -24,7 +24,7 @@
     src: "{{ item }}"
     name: "{{ ssh_chroot_jail_path }}{{ item }}"
     fstype: none
-    opts: ro,bind
+    opts: rw,bind
     state: mounted
   with_items: "{{ ssh_chroot_bind_mount_files }}"
 
