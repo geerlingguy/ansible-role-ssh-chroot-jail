@@ -8,25 +8,11 @@
   with_items: "{{ ssh_chroot_bins }}"
 
 - name: Ensure other items are copied into the jail.
-  shell: "cp {{ item }} {{ ssh_chroot_jail_path }}/{{ item }}"
-  changed_when: False
-  warn: no
-  with_items: "{{ ssh_chroot_copy_extra_items }}"
-
-- name: Ensure bind mount files exist.
-  file:
-    path: "{{ ssh_chroot_jail_path }}{{ item }}"
-    state: touch
-  with_items: "{{ ssh_chroot_bind_mount_files }}"
-
-- name: Ensure configured files are bind mounted.
-  mount:
+  copy:
     src: "{{ item }}"
-    name: "{{ ssh_chroot_jail_path }}{{ item }}"
-    fstype: none
-    opts: rw,bind
-    state: mounted
-  with_items: "{{ ssh_chroot_bind_mount_files }}"
+    dest: "{{ ssh_chroot_jail_path }}/{{ item }}"
+    remote_src: yes
+  with_items: "{{ ssh_chroot_copy_extra_items }}"
 
 - name: Copy extra libraries into the jail if whoami is in the jail.
   shell: "cp {{ lib64_path }}/libns* /var/jail/{{ lib64_path }}/"
