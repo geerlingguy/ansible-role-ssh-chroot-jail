@@ -3,10 +3,7 @@ ssh_chroot_jail_path: /var/jail
 
 ssh_chroot_jail_group_name: ssh_jailed
 
-ssh_chroot_jail_users:
-  - name: foo
-    homedir: /home/foo
-    shell: /bin/bash
+ssh_chroot_jail_users: []
 
 ssh_chroot_jail_dirs:
   - bin

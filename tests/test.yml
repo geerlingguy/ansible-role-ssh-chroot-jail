@@ -1,5 +1,11 @@
 - hosts: all
 
+  vars:
+    ssh_chroot_jail_users:
+      - name: foo
+        homedir: /home/foo
+        shell: /bin/bash
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
