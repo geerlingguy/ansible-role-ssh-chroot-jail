@@ -21,11 +21,12 @@
   copy:
     src: "{{ item.bin | default(item) }}"
     dest: "{{ ssh_chroot_jail_path }}/{{ item.bin | default(item) }}"
+    remote_src: yes
   with_items: "{{ ssh_chroot_bins }}"
 
 - name: Ensure other items are copied into the jail.
   command: "cp {{ item }} {{ ssh_chroot_jail_path }}/{{ item }}"
-  changed_when: false
+  changed_when: False
   warn: no
   with_items: "{{ ssh_chroot_copy_extra_items }}"
 
