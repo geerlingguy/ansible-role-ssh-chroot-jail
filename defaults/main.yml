@@ -35,7 +35,6 @@ ssh_chroot_bins:
   - /bin/grep
   - /bin/chmod
   - /bin/chown
-  - /bin/ed
   - /bin/nano
   - /usr/bin/tail
   - /usr/bin/head

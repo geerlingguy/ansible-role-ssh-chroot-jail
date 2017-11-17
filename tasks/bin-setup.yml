@@ -17,6 +17,7 @@
   file:
     path: "{{ ssh_chroot_jail_path }}{{ item }}"
     state: touch
+  with_items: "{{ ssh_chroot_bind_mount_files }}"
 
 - name: Ensure configured files are bind mounted.
   mount:
