@@ -9,6 +9,14 @@
     createhome: "{{ item.createhome | default(omit) }}"
   register: user_task
 
+- name: Ensure jailed user has a homedir inside the jail (if configured).
+  file:
+    path: "{{ ssh_chroot_jail_path }}{{ item.home }}"
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  when: item.home is defined
+
 - name: Ensure account skeleton files are copied into jailed user's home.
   command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
   become: yes
