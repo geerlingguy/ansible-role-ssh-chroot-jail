@@ -1,0 +1,20 @@
+---
+- name: Ensure binaries are copied into the jail.
+  copy:
+    src: "{{ item.bin | default(item) }}"
+    dest: "{{ ssh_chroot_jail_path }}/{{ item.bin | default(item) }}"
+    remote_src: yes
+    mode: 0755
+  with_items: "{{ ssh_chroot_bins }}"
+
+- name: Ensure other items are copied into the jail.
+  shell: "cp {{ item }} {{ ssh_chroot_jail_path }}/{{ item }}"
+  changed_when: False
+  warn: no
+  with_items: "{{ ssh_chroot_copy_extra_items }}"
+
+- name: Copy extra libraries into the jail if whoami is in the jail.
+  shell: "cp {{ lib64_path }}/libns* /var/jail/{{ lib64_path }}/"
+  changed_when: False
+  warn: no
+  when: "'/usr/bin/whoami' in ssh_chroot_bins"

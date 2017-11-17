@@ -16,20 +16,7 @@
   with_items: "{{ ssh_chroot_jail_devs }}"
 
 - include: l2chroot.yml
-
-- name: Ensure binaries are copied into the jail.
-  copy:
-    src: "{{ item.bin | default(item) }}"
-    dest: "{{ ssh_chroot_jail_path }}/{{ item.bin | default(item) }}"
-    remote_src: yes
-    mode: 0755
-  with_items: "{{ ssh_chroot_bins }}"
-
-- name: Ensure other items are copied into the jail.
-  command: "cp {{ item }} {{ ssh_chroot_jail_path }}/{{ item }}"
-  changed_when: False
-  warn: no
-  with_items: "{{ ssh_chroot_copy_extra_items }}"
+- include: bin-setup.yml
 
 - name: Ensure an ssh jail group exists.
   group:

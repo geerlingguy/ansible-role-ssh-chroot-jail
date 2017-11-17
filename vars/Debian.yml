@@ -1,2 +1,3 @@
 ---
 ssh_daemon: 'ssh'
+lib64_path: /lib/x86_64-linux-gnu
