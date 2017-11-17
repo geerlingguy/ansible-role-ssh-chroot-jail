@@ -41,6 +41,8 @@ ssh_chroot_bins:
   - /usr/bin/uniq
   - /usr/bin/cut
   - /usr/bin/scp
+  - /usr/bin/tee
+  - /usr/bin/touch
   - bin: /usr/bin/which
     l2chroot: no
   - /usr/bin/id
