@@ -52,7 +52,6 @@ ssh_chroot_bins:
   - /usr/bin/free
   - /usr/bin/top
   - /usr/bin/find
-  - /usr/bin/file
   - bin: /usr/bin/which
     l2chroot: no
   - /usr/bin/id
