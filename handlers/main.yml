@@ -3,3 +3,10 @@
   service:
     name: "{{ ssh_daemon }}"
     state: restarted
+
+- name: copy ssh-chroot-jail extra items
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ssh_chroot_jail_path }}/{{ item }}"
+    remote_src: yes
+  with_items: "{{ ssh_chroot_copy_extra_items }}"
