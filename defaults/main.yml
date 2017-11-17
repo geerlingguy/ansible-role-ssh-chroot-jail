@@ -35,6 +35,8 @@ ssh_chroot_bins:
   - /bin/grep
   - /bin/chmod
   - /bin/chown
+  - /bin/ed
+  - /bin/nano
   - /usr/bin/tail
   - /usr/bin/head
   - /usr/bin/awk
@@ -45,10 +47,14 @@ ssh_chroot_bins:
   - /usr/bin/scp
   - /usr/bin/tee
   - /usr/bin/touch
+  - /usr/bin/vim
+  - /usr/bin/dircolors
+  - /usr/bin/tput
   - bin: /usr/bin/which
     l2chroot: no
   - /usr/bin/id
   - /usr/bin/whoami
+  - /usr/bin/groups
 
 ssh_chroot_l2chroot_url: https://www.cyberciti.biz/files/lighttpd/l2chroot.txt
 ssh_chroot_l2chroot_path: /usr/local/bin/l2chroot
@@ -57,7 +63,11 @@ ssh_chroot_copy_extra_items:
   - /etc/ld.so.cache
   - /etc/ld.so.conf
   - /etc/nsswitch.conf
+
+ssh_chroot_bind_mount_files:
   - /etc/hosts
+  - /etc/passwd
+  - /etc/group
 
 ssh_chroot_sshd_chroot_jail_config: |
   Match group {{ ssh_chroot_jail_group_name }}

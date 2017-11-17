@@ -13,6 +13,20 @@
   warn: no
   with_items: "{{ ssh_chroot_copy_extra_items }}"
 
+- name: Ensure bind mount files exist.
+  file:
+    path: "{{ ssh_chroot_jail_path }}{{ item }}"
+    state: touch
+
+- name: Ensure configured files are bind mounted.
+  mount:
+    src: "{{ item }}"
+    name: "{{ ssh_chroot_jail_path }}{{ item }}"
+    fstype: none
+    opts: ro,bind
+    state: mounted
+  with_items: "{{ ssh_chroot_bind_mount_files }}"
+
 - name: Copy extra libraries into the jail if whoami is in the jail.
   shell: "cp {{ lib64_path }}/libns* /var/jail/{{ lib64_path }}/"
   changed_when: False
