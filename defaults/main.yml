@@ -33,6 +33,7 @@ ssh_chroot_bins:
   - /bin/rm
   - /bin/cat
   - /bin/grep
+  - /bin/sed
   - /bin/chmod
   - /bin/chown
   - /bin/ed
@@ -48,8 +49,12 @@ ssh_chroot_bins:
   - /usr/bin/tee
   - /usr/bin/touch
   - /usr/bin/vim
+  - /usr/bin/vi
   - /usr/bin/dircolors
   - /usr/bin/tput
+  - /usr/bin/free
+  - /usr/bin/top
+  - /usr/bin/find
   - bin: /usr/bin/which
     l2chroot: no
   - /usr/bin/id
