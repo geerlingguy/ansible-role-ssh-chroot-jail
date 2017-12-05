@@ -4,7 +4,7 @@
     src: "{{ item.bin | default(item) }}"
     dest: "{{ ssh_chroot_jail_path }}/{{ item.bin | default(item) }}"
     remote_src: yes
-    mode: 0755
+    mode: "{{ item.mode | default('0755') }}"
   with_items: "{{ ssh_chroot_bins }}"
   notify: copy ssh-chroot-jail extra items
 
