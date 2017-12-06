@@ -16,7 +16,18 @@
   with_items: "{{ ssh_chroot_jail_devs }}"
 
 - include: l2chroot.yml
-- include: bin-setup.yml
+
+- name: Ensure binaries are copied into the jail.
+  copy:
+    src: "{{ item.bin | default(item) }}"
+    dest: "{{ ssh_chroot_jail_path }}{{ item.bin | default(item) }}"
+    remote_src: yes
+    mode: "{{ item.mode | default('0755') }}"
+  with_items: "{{ ssh_chroot_bins }}"
+  notify:
+    - copy ssh-chroot-jail extra items
+    - add binary libs via l2chroot
+    - copy extra libraries for whoami
 
 - name: Ensure an ssh jail group exists.
   group:
