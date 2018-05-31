@@ -15,7 +15,7 @@
     creates: "{{ ssh_chroot_jail_path }}/dev/{{ item.dev }}"
   with_items: "{{ ssh_chroot_jail_devs }}"
 
-- include: l2chroot.yml
+- include_tasks: l2chroot.yml
 
 - name: Ensure binaries are copied into the jail.
   copy:
@@ -41,7 +41,7 @@
     insertafter: EOF
   notify: restart ssh daemon
 
-- include: jail-user.yml
+- include_tasks: jail-user.yml
   with_items: "{{ ssh_chroot_jail_users }}"
 
 # To allow which and ID to work
