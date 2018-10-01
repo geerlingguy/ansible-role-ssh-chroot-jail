@@ -3,7 +3,7 @@
   user:
     name: "{{ item.name }}"
     groups: "{{ item.groups | default(omit) }}"
-    append: yes
+    append: true
     shell: "{{ item.shell | default(omit) }}"
     home: "{{ item.home | default(omit) }}"
     createhome: "{{ item.createhome | default(omit) }}"
@@ -19,10 +19,10 @@
 
 - name: Ensure account skeleton files are copied into jailed user's home.
   command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
-  become: yes
+  become: true
   become_user: "{{ item }}"
-  failed_when: False
-  warn: no
+  failed_when: false
+  warn: false
   when:
     - item.home is defined
     - user_task.changed

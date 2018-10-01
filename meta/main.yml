@@ -10,13 +10,13 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-      - 7
+        - 7
     - name: Debian
       versions:
-      - all
+        - all
     - name: Ubuntu
       versions:
-      - all
+        - all
   galaxy_tags:
     - system
     - security

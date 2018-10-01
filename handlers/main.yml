@@ -8,7 +8,7 @@
   copy:
     src: "{{ item }}"
     dest: "{{ ssh_chroot_jail_path }}{{ item }}"
-    remote_src: yes
+    remote_src: true
   with_items: "{{ ssh_chroot_copy_extra_items }}"
 
 - name: add binary libs via l2chroot
@@ -17,6 +17,6 @@
   with_items: "{{ ssh_chroot_bins }}"
 
 - name: copy extra libraries for whoami
-  shell: "cp {{ lib64_path }}/libns* /var/jail/{{ lib64_path }}/"
-  warn: no
+  command: "cp {{ lib64_path }}/libns* /var/jail/{{ lib64_path }}/"
+  warn: false
   when: "'/usr/bin/whoami' in ssh_chroot_bins"

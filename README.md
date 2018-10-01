@@ -60,9 +60,9 @@ Devices that should exist in the jail.
       - /usr/bin/wc
       ...
       - bin: /usr/bin/which
-        l2chroot: no
+        l2chroot: false
 
-A list of binaries which should be copied over to the jail. Each binary will also have its library dependencies copied into the jail using [`l2chroot`](https://www.cyberciti.biz/files/lighttpd/l2chroot.txt); you can skip that task by setting the `bin` key explicitly and setting `l2chroot: no` as in the last example above.
+A list of binaries which should be copied over to the jail. Each binary will also have its library dependencies copied into the jail using [`l2chroot`](https://www.cyberciti.biz/files/lighttpd/l2chroot.txt); you can skip that task by setting the `bin` key explicitly and setting `l2chroot: false` as in the last example above.
 
     ssh_chroot_l2chroot_url: https://www.cyberciti.biz/files/lighttpd/l2chroot.txt
     ssh_chroot_l2chroot_path: /usr/local/bin/l2chroot

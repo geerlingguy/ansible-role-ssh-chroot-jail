@@ -17,10 +17,10 @@ ssh_chroot_jail_dirs:
   - home
 
 ssh_chroot_jail_devs:
-  - { dev: 'null', major: '1', minor: '3' }
-  - { dev: 'random', major: '5', minor: '0' }
-  - { dev: 'urandom', major: '1', minor: '5' }
-  - { dev: 'zero', major: '1', minor: '8' }
+  - {dev: 'null', major: '1', minor: '3'}
+  - {dev: 'random', major: '5', minor: '0'}
+  - {dev: 'urandom', major: '1', minor: '5'}
+  - {dev: 'zero', major: '1', minor: '8'}
 
 ssh_chroot_bins:
   - /bin/cp
@@ -53,7 +53,7 @@ ssh_chroot_bins:
   - /usr/bin/top
   - /usr/bin/find
   - bin: /usr/bin/which
-    l2chroot: no
+    l2chroot: false
   - /usr/bin/id
   - /usr/bin/whoami
   - /usr/bin/groups
