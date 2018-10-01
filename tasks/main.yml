@@ -43,6 +43,3 @@
 
 - include_tasks: jail-user.yml
   with_items: "{{ ssh_chroot_jail_users }}"
-
-# To allow which and ID to work
-# cp /lib/x86_64-linux-gnu/libns* /var/jail/lib/x86_64-linux-gnu/

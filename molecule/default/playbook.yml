@@ -20,6 +20,7 @@
           - ed
           - nano
           - vim
+          - coreutils
         state: present
 
     - name: Ensure build dependencies are installed (RedHat).
