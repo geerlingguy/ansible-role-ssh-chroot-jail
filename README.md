@@ -22,7 +22,7 @@ The group into which jailed users should be added.
 
     ssh_chroot_jail_users:
       - name: foo
-        homedir: /home/foo
+        home: /home/foo
         shell: /bin/bash
 
 A list of users who should be in the chroot jail. Leave set to the default (`[]`) if you would like to manage users on your own.
