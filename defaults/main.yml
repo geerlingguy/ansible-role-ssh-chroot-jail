@@ -77,3 +77,5 @@ ssh_chroot_sshd_chroot_jail_config: |
       ChrootDirectory {{ ssh_chroot_jail_path }}
       X11Forwarding no
       AllowTcpForwarding no
+
+ssh_chroot_jail_dirs_recurse: true
