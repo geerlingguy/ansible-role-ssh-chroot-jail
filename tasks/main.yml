@@ -6,7 +6,7 @@
   file:
     path: "{{ ssh_chroot_jail_path }}/{{ item }}"
     state: directory
-    recurse: true
+    recurse: "{{ ssh_chroot_jail_dirs_recurse }}"
   with_items: "{{ ssh_chroot_jail_dirs }}"
 
 - name: Ensure jail devices exist.
