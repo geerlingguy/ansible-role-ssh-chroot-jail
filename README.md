@@ -87,6 +87,10 @@ Extra items which should be copied into the jail.
 
 Configuration to add to the server's `sshd_config` controlling how users in the chroot jail group are handled.
 
+    ssh_chroot_jail_dirs_recurse: true
+
+When adding jail directories, whether the directory addition should be done recursively or not. If you have many directories with thousands of files, and/or have the directories on a slow filesystem, this should be set to `false`.
+
 ## Dependencies
 
 None.
