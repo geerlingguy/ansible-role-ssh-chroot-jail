@@ -98,6 +98,7 @@ None.
 ## Example Playbook
 
     - hosts: servers
+      become: yes
       roles:
         - geerlingguy.security
         - geerlingguy.ssh-chroot-jail
