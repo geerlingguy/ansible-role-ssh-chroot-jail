@@ -109,6 +109,7 @@ None.
       - name: janedoe
         homedir: /home/janedoe
         shell: /bin/bash
+        groups: "{{ ssh_chroot_jail_group_name }}"        
 
 ## License
 
