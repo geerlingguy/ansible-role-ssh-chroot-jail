@@ -107,7 +107,7 @@ None.
 
     ssh_chroot_jail_users:
       - name: janedoe
-        homedir: /home/janedoe
+        home: /home/janedoe
         shell: /bin/bash
 
 ## License
