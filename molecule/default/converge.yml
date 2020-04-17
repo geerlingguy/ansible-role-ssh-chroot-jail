@@ -7,7 +7,7 @@
     ssh_chroot_l2chroot_path: /usr/bin/l2chroot
     ssh_chroot_jail_users:
       - name: foo
-        homedir: /home/foo
+        home: /home/foo
         shell: /bin/bash
 
   pre_tasks:
