@@ -23,7 +23,7 @@
   args:
     warn: false
   become: true
-  become_user: "{{ item }}"
+  become_user: "{{ item.name }}"
   failed_when: false
   when:
     - item.home is defined
