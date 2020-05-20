@@ -16,11 +16,18 @@ ssh_chroot_jail_dirs:
   - usr/lib64
   - home
 
+# can include type: c, b, p
+# c = char device (unbuffered) [the default]
+# b = block device (buffered)
+# p = FIFO device
+# anything else may result in errors with mknod or systemd-tmpfiles
 ssh_chroot_jail_devs:
   - {dev: 'null', major: '1', minor: '3'}
   - {dev: 'random', major: '5', minor: '0'}
   - {dev: 'urandom', major: '1', minor: '5'}
   - {dev: 'zero', major: '1', minor: '8'}
+
+ssh_chroot_tmpfiles_conf_path: /etc/tmpfiles.d/ssh-chroot.conf
 
 ssh_chroot_bins:
   - /bin/cp
