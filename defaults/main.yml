@@ -61,7 +61,7 @@ ssh_chroot_bins:
   # - bin: /bin/ping
   #   mode: 4755
 
-ssh_chroot_l2chroot_url: https://www.cyberciti.biz/files/lighttpd/l2chroot.txt
+ssh_chroot_l2chroot_template: l2chroot.j2
 ssh_chroot_l2chroot_path: /usr/local/bin/l2chroot
 
 ssh_chroot_copy_extra_items:
