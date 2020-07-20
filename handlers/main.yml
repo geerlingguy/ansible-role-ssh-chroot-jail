@@ -12,7 +12,7 @@
   with_items: "{{ ssh_chroot_copy_extra_items }}"
 
 - name: add binary libs via l2chroot
-  command: "l2chroot {{ item.bin | default(item) }}"
+  command: "{{ ssh_chroot_l2chroot_path }} {{ item.bin | default(item) }}"
   when: item.l2chroot is not defined or item.l2chroot
   with_items: "{{ ssh_chroot_bins }}"
 
