@@ -16,6 +16,7 @@
     state: directory
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
+    mode: 0755
   when: item.home is defined
 
 - name: Ensure account skeleton files are copied into jailed user's home.

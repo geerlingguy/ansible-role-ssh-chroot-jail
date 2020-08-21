@@ -5,7 +5,7 @@
     state: restarted
 
 - name: copy ssh-chroot-jail extra items
-  copy:
+  copy:  # noqa 208
     src: "{{ item }}"
     dest: "{{ ssh_chroot_jail_path }}{{ item }}"
     remote_src: true
