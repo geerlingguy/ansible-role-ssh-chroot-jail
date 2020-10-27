@@ -1,6 +1,6 @@
 # Ansible Role: SSH chroot jail config
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-security.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-ssh-chroot-jail)
+[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-security.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-ssh-chroot-jail)
 
 Configures a chroot jail specifically for the purpose of limiting a set of SSH users to the jail. Useful if you have a server where you need to allow very limited access to a very limited amount of functionality.
 
