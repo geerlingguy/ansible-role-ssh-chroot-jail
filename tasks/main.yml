@@ -40,9 +40,10 @@
 
 - name: Ensure SSHD config contains jail configuration.
   blockinfile:
-    path: /etc/ssh/sshd_config
+    path: "{{ ssh_chroot_sshd_config_file | default('/etc/ssh/sshd_config') }}"
     block: "{{ ssh_chroot_sshd_chroot_jail_config }}"
     insertafter: EOF
+    create: yes
   notify: restart ssh daemon
 
 - include_tasks: jail-user.yml
