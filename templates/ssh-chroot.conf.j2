@@ -1,0 +1,3 @@
+{% for device in ssh_chroot_jail_devs %}
+{{ device.type | default('c') }} {{ ssh_chroot_jail_path }}/dev/{{ device.dev }} 0666 root root - {{ device.major }}:{{ device.minor }}
+{% endfor %}
