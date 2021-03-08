@@ -2,8 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  # See: https://github.com/ansible/galaxy/issues/2393
-  # role_name: ssh-chroot-jail
+  role_name: ssh-chroot-jail
   author: geerlingguy
   description: Simple SSH chroot jail management.
   company: "Midwestern Mac, LLC"
