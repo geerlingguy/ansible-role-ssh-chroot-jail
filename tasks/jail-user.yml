@@ -20,12 +20,21 @@
   when: item.home is defined
 
 - name: Ensure account skeleton files are copied into jailed user's home.
-  command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
-  args:
-    warn: false
-  become: true
-  become_user: "{{ item.name }}"
-  failed_when: false
+  block:
+    - name: Copy the skeleton files into jailed user's home.
+      command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
+      args:
+        warn: false
+      failed_when: false
+
+    - name: Set the correct ownership for the files into jailed user's home.
+      ansible.builtin.file:
+        path: "{{ ssh_chroot_jail_path }}{{ item.home }}"
+        state: directory
+        owner: "{{ item.name }}"
+        group: "{{ item.name }}"
+        mode: 0755
+        recurse: true
   when:
     - item.home is defined
     - user_task.changed
