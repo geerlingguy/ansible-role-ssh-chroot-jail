@@ -18,6 +18,4 @@
 
 - name: copy extra libraries for whoami
   shell: "cp {{ lib64_path }}/libns* {{ ssh_chroot_jail_path }}/{{ lib64_path }}/"
-  args:
-    warn: false
   when: "'/usr/bin/whoami' in ssh_chroot_bins"

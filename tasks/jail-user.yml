@@ -23,8 +23,6 @@
   block:
     - name: Copy the skeleton files into jailed user's home.
       command: "cp -r -n /etc/skel/. {{ ssh_chroot_jail_path }}{{ item.home }}"
-      args:
-        warn: false
       failed_when: false
 
     - name: Set the correct ownership for the files into jailed user's home.
