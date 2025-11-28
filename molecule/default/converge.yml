@@ -13,7 +13,7 @@
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=true cache_valid_time=600
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts.os_family == 'Debian'
 
     - name: Ensure build dependencies are installed.
       package:
@@ -30,7 +30,7 @@
           - openssh-server
           - openssh-clients
         state: present
-      when: ansible_os_family == 'RedHat'
+      when: ansible_facts.os_family == 'RedHat'
 
     - name: Ensure build dependencies are installed (Debian).
       apt:
@@ -38,7 +38,7 @@
           - openssh-server
           - openssh-client
         state: present
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts.os_family == 'Debian'
 
   roles:
     - role: geerlingguy.ssh-chroot-jail

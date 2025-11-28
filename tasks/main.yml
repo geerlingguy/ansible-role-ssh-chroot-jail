@@ -1,6 +1,6 @@
 ---
 - name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
+  include_vars: "{{ ansible_facts.os_family }}.yml"
 
 - name: Ensure jail directories exist.
   file:  # noqa 208
@@ -19,7 +19,7 @@
   template:
     src: ssh-chroot.conf.j2
     dest: "{{ ssh_chroot_tmpfiles_conf_path }}"
-  when: "ansible_service_mgr == 'systemd'"
+  when: "ansible_facts.service_mgr == 'systemd'"
 
 - name: Ensure l2chroot is installed.
   template:
